@@ -1,0 +1,272 @@
+body {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto repeat(4, auto) auto;
+    background-color: #F28F79;
+	row-gap: 0;
+	min-height: 100vh;
+}
+
+header {
+	grid-column: 1 / -1;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	column-gap: 20px;
+	padding: 10px 40px;
+}
+
+.header-content {
+	grid-column: 1;
+	justify-self: start;
+}
+
+.app-title {
+	margin: 0;
+    color: #5D688C;
+	font-size: 2rem;    
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
+	font-weight: 600;
+}
+
+.countdown-timer {
+	grid-column: 2;
+	justify-self: center;
+	background: #F2B9AC;
+	border-radius: 24px;
+	padding: 12px 32px;
+	min-width: 170px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.timer-display {
+	font-size: 1.8rem;
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
+.global-volume-control {
+	grid-column: 3;
+	justify-self: end;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.volume-button {
+	padding: 8px 16px;
+    border: none;
+	border-radius: 20px;
+	background-color: #F2B9AC;
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
+    font-weight: 500;
+	cursor: pointer;
+}
+
+.global-volume-slider {
+	width: 160px;
+	appearance: none;
+	height: 6px;
+	background: #F2B9AC;
+	border-radius: 3px;
+	outline: none;
+}
+
+.global-volume-slider::-webkit-slider-thumb {
+	appearance: none;
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #5D688C;
+	cursor: pointer;
+}
+
+.global-volume-slider::-moz-range-thumb {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	background: #5D688C;
+	cursor: pointer;
+	border: none;
+}
+
+nav {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    margin-bottom: 0px;
+}
+
+main {
+	grid-column: 1 / -1;
+	grid-row: 2 / 6;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: repeat(4, auto);
+	margin-top: 0px;
+}
+
+footer {
+	grid-column: 2;
+	grid-row: 6;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
+}
+
+.sounds-row,
+.sounds-row1,
+.sounds-row2,
+.sounds-row3 {
+	grid-column: 2;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	column-gap: 100px;
+    row-gap: 100px;
+	justify-items: stretch;
+	width: 100%;
+}
+
+.sounds-row1 {
+	grid-row: 3;
+    margin-top: 0px;
+}
+
+.sounds-row2 {
+	grid-row: 4;
+	margin-top: 30px;
+}
+
+.sounds-row3 {
+	grid-row: 5;
+	margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.mix-card-section {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    gap: 20px;
+}
+
+.pre-mixes {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    column-gap: 20px;
+    /* border: 1px solid #000; */
+    padding: 5px;
+    max-width: 600px;
+    margin: 20px 0;
+    grid-column: 1 / -1;
+    grid-row: 2;
+}
+
+.mix-card {
+    /* border: 2px solid #000; */
+    border-radius: 30px;
+    width: 120px;
+    height: 100px;
+    background-color: #F2B9AC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#rightArrow {
+	border: none;
+	background: none;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	cursor: pointer;
+}
+
+#rightArrow img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+
+#leftArrow {
+	border: none;
+	background: none;
+	width: 30px;
+	height: 30px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0;
+	cursor: pointer;
+}
+
+#leftArrow img {
+	display: block;
+	width: 100%;
+	height: auto;
+	transform: rotate(180deg);
+}
+
+.sound-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-direction: column;
+	gap: 16px;
+	/* border: 1px solid #000; */
+	border-radius: 12px;
+	background-color: #F28F79;
+	padding: 20px;
+	width: 100%;
+}
+
+.sound-icon img {
+	display: block;
+    stroke: #5D688C;
+	width: 108px;
+	height: auto;
+}
+
+.sound-volume {
+	width: 100%;
+}
+
+.sound-volume-slider {
+	width: 100%;
+	appearance: none;
+	height: 6px;
+	background: #F2B9AC;
+	border-radius: 3px;
+	outline: none;
+}
+
+.sound-volume-slider::-webkit-slider-thumb {
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #5D688C;
+	cursor: pointer;
+}
+
+.sound-volume-slider::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #5D688C;
+	cursor: pointer;
+	border: none;
+}
+
+.rain-icon { stroke: #5D688C; }
+.rain-icon .rain-stroke { stroke: #5D688C; }
