@@ -1,0 +1,23 @@
+body {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-rows: auto repeat(4, auto) auto;
+    background-color: #F28F79;
+	row-gap: 0;
+	min-height: 100vh;
+}
+
+header {
+	grid-column: 1 / -1;
+	grid-row: 1;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	align-items: center;
+	column-gap: 20px;
+	padding: 10px 40px;
+}
+
+.header-content {
+	grid-column: 1;
+	justify-self: start;
+}
