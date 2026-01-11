@@ -67,5 +67,44 @@
         rainCard.addEventListener('click', toggleRainSound); 
         /* Binds the toggleRainSound function to click events on the rainCard,
         enabling user interaction to start and stop the ambient rain sound. */
+
+        const thunderCard = document.getElementById('sound2');
+        if (!thunderCard) {
+            return;
+        }
+
+        const thunderAudio = new Audio('Assets/sounds/Thunder.mp3');
+        thunderAudio.loop = true;
+
+        const thunderSlider = thunderCard.querySelector('.sound-volume-slider');
+
+        if (thunderSlider) {
+            thunderAudio.volume = Number(thunderSlider.value) / 100;
+
+            thunderSlider.addEventListener('input', (event) => {
+                const sliderValue = Number(event.target.value);
+                thunderAudio.volume = sliderValue / 100;
+            });
+
+            thunderSlider.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+        }
+
+        const toggleThunderSound = (event) => {
+            if (event.target === thunderSlider || event.target.closest('.sound-volume')) {
+                return;
+            }
+            if (thunderAudio.paused) {
+                thunderAudio.currentTime = 0;
+                thunderAudio.play().catch((error) => {
+                    console.error('Unable to play Thunder.mp3', error);
+                });
+            } else {
+                thunderAudio.pause();
+            }
+        };
+
+        thunderCard.addEventListener('click', toggleThunderSound);
     });
 })();
