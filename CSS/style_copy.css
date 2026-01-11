@@ -86,14 +86,14 @@ header {
 	cursor: pointer;
 }
 
-.global-volume-slider::-moz-range-thumb {
+/* .global-volume-slider::-moz-range-thumb {
 	width: 18px;
 	height: 18px;
 	border-radius: 50%;
 	background: #5D688C;
 	cursor: pointer;
 	border: none;
-}
+} */
 
 nav {
     grid-column: 2 / -1;
