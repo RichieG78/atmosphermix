@@ -227,3 +227,37 @@ footer {
 	width: 108px;
 	height: auto;
 }
+
+.sound-volume {
+	width: 100%;
+}
+
+.sound-volume-slider {
+	width: 100%;
+	appearance: none;
+	height: 6px;
+	background: #F2B9AC;
+	border-radius: 3px;
+	outline: none;
+}
+
+.sound-volume-slider::-webkit-slider-thumb {
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #5D688C;
+	cursor: pointer;
+}
+
+.sound-volume-slider::-moz-range-thumb {
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	background: #5D688C;
+	cursor: pointer;
+	border: none;
+}
+
+/* .rain-icon { stroke: #5D688C; }
+.rain-icon .rain-stroke { stroke: #5D688C; } */
