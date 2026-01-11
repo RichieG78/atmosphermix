@@ -39,7 +39,7 @@ header {
 	min-width: 170px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -48,6 +48,23 @@ header {
     font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
 	font-weight: 500;
 	letter-spacing: 1px;
+}
+
+.play-pause-stop {
+	margin-left: 32px;
+	border: none;
+	background: none;
+	cursor: pointer;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.play-pause-stop img {
+	width: 24px;
+	height: 24px;
+	display: block;
 }
 
 .global-volume-control {
