@@ -2,6 +2,8 @@
     Loads and plays ambient sound files (Rain, Thunder, Ocean) when their respective cards are clicked,,
     allows volume adjustment via sliders within each sound card and a slider and mute button for global control. */
 
+// Global array to store all audio instances for external control (e.g., timer)
+window.allAudioInstances = [];
 
 (function () {
     document.addEventListener('DOMContentLoaded', () => {
@@ -20,6 +22,7 @@
         letting the script drive the ambient rain sound programmatically instead of relying on markup-based <audio> elements. */
 
         rainAudio.loop = true; // keeps ambience running once started
+        window.allAudioInstances.push(rainAudio); // Add to global array for timer control
 
         const rainSlider = rainCard.querySelector('.sound-volume-slider');
         /* Searches inside rainCard for the first descendant element matching the 
@@ -82,6 +85,7 @@
 
         const thunderAudio = new Audio('Assets/sounds/Thunder.mp3');
         thunderAudio.loop = true;
+        window.allAudioInstances.push(thunderAudio); // Add to global array for timer control
 
         const thunderSlider = thunderCard.querySelector('.sound-volume-slider');
 
@@ -122,6 +126,7 @@
 
         const oceanAudio = new Audio('Assets/sounds/Ocean.mp3');
         oceanAudio.loop = true;
+        window.allAudioInstances.push(oceanAudio); // Add to global array for timer control
 
         const oceanSlider = oceanCard.querySelector('.sound-volume-slider');
 
@@ -162,6 +167,7 @@
 
         const waterfallAudio = new Audio('Assets/sounds/Waterfall.mp3');
         waterfallAudio.loop = true;
+        window.allAudioInstances.push(waterfallAudio); // Add to global array for timer control
 
         const waterfallSlider = waterfallCard.querySelector('.sound-volume-slider');
 
@@ -202,6 +208,7 @@
         
         const cafeAudio = new Audio('Assets/sounds/CoffeeShop.mp3');
         cafeAudio.loop = true;
+        window.allAudioInstances.push(cafeAudio); // Add to global array for timer control
 
         const cafeSlider = cafeCard.querySelector('.sound-volume-slider');
         
@@ -242,6 +249,7 @@
 
         const fireplaceAudio = new Audio('Assets/sounds/Fireplace.mp3');
         fireplaceAudio.loop = true;
+        window.allAudioInstances.push(fireplaceAudio); // Add to global array for timer control
 
         const fireplaceSlider = fireplaceCard.querySelector('.sound-volume-slider');
 
@@ -282,6 +290,7 @@
 
         const birdAudio = new Audio('Assets/sounds/BirdSong.mp3');
         birdAudio.loop = true;
+        window.allAudioInstances.push(birdAudio); // Add to global array for timer control
 
         const birdSlider = birdCard.querySelector('.sound-volume-slider');
 
@@ -322,6 +331,7 @@
 
         const whiteNoiseAudio = new Audio('Assets/sounds/WhiteNoise.mp3');
         whiteNoiseAudio.loop = true;
+        window.allAudioInstances.push(whiteNoiseAudio); // Add to global array for timer control
 
         const whiteNoiseSlider = whiteNoiseCard.querySelector('.sound-volume-slider');
 
@@ -362,6 +372,7 @@
 
         const brownNoiseAudio = new Audio('Assets/sounds/BrownNoise.mp3');
         brownNoiseAudio.loop = true;
+        window.allAudioInstances.push(brownNoiseAudio); // Add to global array for timer control
 
         const brownNoiseSlider = brownNoiseCard.querySelector('.sound-volume-slider');
 
@@ -393,5 +404,56 @@
         };
         
         brownNoiseCard.addEventListener('click', toggleBrownNoiseSound);
+
+        /* Global Volume Control */
+        const globalVolumeSlider = document.querySelector('.global-volume-slider');
+        const muteButton = document.querySelector('.volume-button');
+        
+        let isMuted = false;
+        let previousVolumes = []; // Store individual volumes before muting
+        let globalVolumeMultiplier = 0.7; // Default global volume (70%)
+
+        if (globalVolumeSlider) {
+            // Global volume slider adjusts all audio instances as a multiplier
+            globalVolumeSlider.addEventListener('input', (event) => {
+                globalVolumeMultiplier = Number(event.target.value) / 100;
+                
+                // Update all audio instances with the new global multiplier
+                window.allAudioInstances.forEach((audio, index) => {
+                    // Get the individual slider for this audio
+                    const soundCards = document.querySelectorAll('.sound-card');
+                    if (soundCards[index]) {
+                        const individualSlider = soundCards[index].querySelector('.sound-volume-slider');
+                        if (individualSlider) {
+                            const individualVolume = Number(individualSlider.value) / 100;
+                            audio.volume = individualVolume * globalVolumeMultiplier;
+                        }
+                    }
+                });
+            });
+        }
+
+        if (muteButton) {
+            muteButton.addEventListener('click', () => {
+                if (!isMuted) {
+                    // Mute: save current volumes and set all to 0
+                    previousVolumes = window.allAudioInstances.map(audio => audio.volume);
+                    window.allAudioInstances.forEach(audio => {
+                        audio.volume = 0;
+                    });
+                    muteButton.textContent = 'Unmute';
+                    muteButton.setAttribute('aria-label', 'Unmute volume');
+                    isMuted = true;
+                } else {
+                    // Unmute: restore previous volumes
+                    window.allAudioInstances.forEach((audio, index) => {
+                        audio.volume = previousVolumes[index] || 0.7;
+                    });
+                    muteButton.textContent = 'Mute';
+                    muteButton.setAttribute('aria-label', 'Mute volume');
+                    isMuted = false;
+                }
+            });
+        }
     });
 })();

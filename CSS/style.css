@@ -67,6 +67,24 @@ header {
 	display: block;
 }
 
+.timer-section {
+	grid-column: 2;
+	justify-self: center;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.reset-button {
+	padding: 8px 16px;
+    border: none;
+	border-radius: 20px;
+	background-color: #F2B9AC;
+    font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
+    font-weight: 500;
+	cursor: pointer;
+}
+
 .global-volume-control {
 	grid-column: 3;
 	justify-self: end;
