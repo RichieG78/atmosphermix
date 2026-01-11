@@ -274,6 +274,124 @@
         
         fireplaceCard.addEventListener('click', toggleFireplaceSound);
 
+/* Creates the toggle on and off and volume slider for the Bird Song sound */
+    const birdCard = document.getElementById('sound7');    
+        if (!birdCard) {
+            return;
+        }
 
+        const birdAudio = new Audio('Assets/sounds/BirdSong.mp3');
+        birdAudio.loop = true;
+
+        const birdSlider = birdCard.querySelector('.sound-volume-slider');
+
+        if (birdSlider) {
+            birdAudio.volume = Number(birdSlider.value) / 100;
+
+            birdSlider.addEventListener('input', (event) => {
+                const sliderValue = Number(event.target.value);
+                birdAudio.volume = sliderValue / 100;
+            });
+
+            birdSlider.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+        }
+
+        const toggleBirdSound = (event) => {
+            if (event.target === birdSlider || event.target.closest('.sound-volume')) {
+                return;
+            }
+            if (birdAudio.paused) {
+                birdAudio.currentTime = 0;
+                birdAudio.play().catch((error) => {
+                    console.error('Unable to play BirdSong.mp3', error);
+                });
+            } else {
+                birdAudio.pause();
+            }
+        };
+        
+        birdCard.addEventListener('click', toggleBirdSound);
+
+/* Creates the toggle on and off and volume slider for the White Noise sound */
+    const whiteNoiseCard = document.getElementById('sound8');    
+        if (!whiteNoiseCard) {
+            return;
+        }
+
+        const whiteNoiseAudio = new Audio('Assets/sounds/WhiteNoise.mp3');
+        whiteNoiseAudio.loop = true;
+
+        const whiteNoiseSlider = whiteNoiseCard.querySelector('.sound-volume-slider');
+
+        if (whiteNoiseSlider) {
+            whiteNoiseAudio.volume = Number(whiteNoiseSlider.value) / 100;
+
+            whiteNoiseSlider.addEventListener('input', (event) => {
+                const sliderValue = Number(event.target.value);
+                whiteNoiseAudio.volume = sliderValue / 100;
+            });
+
+            whiteNoiseSlider.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+        }
+
+        const toggleWhiteNoiseSound = (event) => {
+            if (event.target === whiteNoiseSlider || event.target.closest('.sound-volume')) {
+                return;
+            }
+            if (whiteNoiseAudio.paused) {
+                whiteNoiseAudio.currentTime = 0;
+                whiteNoiseAudio.play().catch((error) => {
+                    console.error('Unable to play WhiteNoise.mp3', error);
+                });
+            } else {
+                whiteNoiseAudio.pause();
+            }
+        };
+        
+        whiteNoiseCard.addEventListener('click', toggleWhiteNoiseSound);    
+
+/* Creates the toggle on and off and volume slider for the Brown Noise sound */
+    const brownNoiseCard = document.getElementById('sound9');    
+        if (!brownNoiseCard) {
+            return;
+        }
+
+        const brownNoiseAudio = new Audio('Assets/sounds/BrownNoise.mp3');
+        brownNoiseAudio.loop = true;
+
+        const brownNoiseSlider = brownNoiseCard.querySelector('.sound-volume-slider');
+
+        if (brownNoiseSlider) {
+            brownNoiseAudio.volume = Number(brownNoiseSlider.value) / 100;
+
+            brownNoiseSlider.addEventListener('input', (event) => {
+                const sliderValue = Number(event.target.value);
+                brownNoiseAudio.volume = sliderValue / 100;
+            });
+
+            brownNoiseSlider.addEventListener('click', (event) => {
+                event.stopPropagation();
+            });
+        }
+
+        const toggleBrownNoiseSound = (event) => {
+            if (event.target === brownNoiseSlider || event.target.closest('.sound-volume')) {
+                return;
+            }
+            if (brownNoiseAudio.paused) {
+                brownNoiseAudio.currentTime = 0;
+                brownNoiseAudio.play().catch((error) => {
+                    console.error('Unable to play BrownNoise.mp3', error);
+                });
+            } else {
+                brownNoiseAudio.pause();
+            }
+        };
+        
+        brownNoiseCard.addEventListener('click', toggleBrownNoiseSound);
     });
 })();
