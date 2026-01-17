@@ -405,6 +405,8 @@ window.allAudioInstances = [];
         
         brownNoiseCard.addEventListener('click', toggleBrownNoiseSound);
 
+
+
         /* Global Volume Control */
         const globalVolumeSlider = document.querySelector('.global-volume-slider');
         const muteButton = document.querySelector('.volume-button');

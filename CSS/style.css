@@ -206,6 +206,12 @@ footer {
     justify-content: center;
 }
 
+.mix-card img {
+    width: 40px;
+    height: auto;
+	cursor: pointer;
+}
+
 #rightArrow {
 	border: none;
 	background: none;
@@ -241,6 +247,18 @@ footer {
 	width: 100%;
 	height: auto;
 	transform: rotate(180deg);
+}
+
+#play-mix {
+	border: none;
+	cursor: pointer;
+	padding: 0;
+}
+
+#play-mix img {
+	width: 40px;
+	height: auto;
+	cursor: pointer;
 }
 
 .sound-card {
