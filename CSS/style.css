@@ -180,9 +180,20 @@ footer {
 	justify-content: flex-start;
 	align-items: center;
     gap: 20px;
-	overflow: hidden;
+	overflow-x: auto;
+	overflow-y: visible;
 	width: 100%;
+	max-width: calc(4 * 120px + 3 * 20px);
 	scroll-behavior: smooth;
+	scrollbar-width: none;
+	padding: 5px 0;
+	position: relative;
+	-webkit-mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+	mask-image: linear-gradient(to right, transparent, black 20px, black calc(100% - 20px), transparent);
+}
+
+.mix-card-section::-webkit-scrollbar {
+	display: none;
 }
 
 .pre-mixes {
@@ -197,6 +208,7 @@ footer {
     grid-column: 1 / -1;
     grid-row: 2;
 	overflow: hidden;
+	position: relative;
 }
 
 .mix-card {

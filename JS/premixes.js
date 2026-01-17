@@ -12,13 +12,14 @@
         const totalCards = mixCards.length;
         
         // Wrap each card in a container div for vertical layout
-        mixCards.forEach((card) => {
+        mixCards.forEach((card, index) => {
             const wrapper = document.createElement('div');
             wrapper.className = 'mix-card-wrapper';
             wrapper.style.display = 'flex';
             wrapper.style.flexDirection = 'column';
             wrapper.style.alignItems = 'center';
             wrapper.style.flexShrink = '0';
+            wrapper.style.minWidth = '120px';
             card.parentNode.insertBefore(wrapper, card);
             wrapper.appendChild(card);
         });
@@ -55,11 +56,26 @@
 
         function scrollToIndex(index) {
             const wrappers = document.querySelectorAll('.mix-card-wrapper');
-            if (wrappers[index]) {
-                // Calculate scroll position based on card width + gap
-                const cardWidth = 120; // width of mix-card
-                const gap = 20; // gap between cards
-                const scrollPosition = index * (cardWidth + gap);
+            
+            // For the last set of cards, ensure we show exactly the last 4 cards
+            if (index >= totalCards - cardsPerView) {
+                // Scroll to the very end to show the last 4 cards completely
+                mixCardSection.scrollTo({
+                    left: mixCardSection.scrollWidth - mixCardSection.clientWidth,
+                    behavior: 'smooth'
+                });
+            } else if (index === 0) {
+                // Scroll to the beginning
+                mixCardSection.scrollTo({
+                    left: 0,
+                    behavior: 'smooth'
+                });
+            } else if (wrappers[index]) {
+                // Calculate scroll position based on actual wrapper width
+                const firstWrapper = wrappers[0];
+                const wrapperWidth = firstWrapper.offsetWidth;
+                const gap = 20;
+                const scrollPosition = index * (wrapperWidth + gap);
                 
                 mixCardSection.scrollTo({
                     left: scrollPosition,
