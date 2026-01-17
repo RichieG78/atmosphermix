@@ -177,9 +177,12 @@ footer {
 
 .mix-card-section {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
     gap: 20px;
+	overflow: hidden;
+	width: 100%;
+	scroll-behavior: smooth;
 }
 
 .pre-mixes {
@@ -193,6 +196,7 @@ footer {
     margin: 20px 0;
     grid-column: 1 / -1;
     grid-row: 2;
+	overflow: hidden;
 }
 
 .mix-card {
@@ -204,6 +208,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+	flex-shrink: 0;
 }
 
 .mix-card img {

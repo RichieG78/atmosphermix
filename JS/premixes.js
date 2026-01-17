@@ -7,6 +7,9 @@
         const mixCardSection = document.querySelector('.mix-card-section');
         const cardButtons = new Map(); // Track buttons for each card
         let activePremixId = null; // Track which premix is currently playing
+        let currentScrollIndex = 0; // Track current position in carousel
+        const cardsPerView = 4; // Number of cards visible at once
+        const totalCards = mixCards.length;
         
         // Wrap each card in a container div for vertical layout
         mixCards.forEach((card) => {
@@ -15,6 +18,7 @@
             wrapper.style.display = 'flex';
             wrapper.style.flexDirection = 'column';
             wrapper.style.alignItems = 'center';
+            wrapper.style.flexShrink = '0';
             card.parentNode.insertBefore(wrapper, card);
             wrapper.appendChild(card);
         });
@@ -26,6 +30,43 @@
         mixCards.forEach((card) => {
             card.addEventListener('click', handleMixCardClick);
         });
+
+        // Arrow navigation for carousel
+        const leftArrow = document.getElementById('leftArrow');
+        const rightArrow = document.getElementById('rightArrow');
+
+        if (leftArrow) {
+            leftArrow.addEventListener('click', () => {
+                if (currentScrollIndex > 0) {
+                    currentScrollIndex--;
+                    scrollToIndex(currentScrollIndex);
+                }
+            });
+        }
+
+        if (rightArrow) {
+            rightArrow.addEventListener('click', () => {
+                if (currentScrollIndex < totalCards - cardsPerView) {
+                    currentScrollIndex++;
+                    scrollToIndex(currentScrollIndex);
+                }
+            });
+        }
+
+        function scrollToIndex(index) {
+            const wrappers = document.querySelectorAll('.mix-card-wrapper');
+            if (wrappers[index]) {
+                // Calculate scroll position based on card width + gap
+                const cardWidth = 120; // width of mix-card
+                const gap = 20; // gap between cards
+                const scrollPosition = index * (cardWidth + gap);
+                
+                mixCardSection.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
 
         function handleMixCardClick(event) {
             const card = event.currentTarget;
