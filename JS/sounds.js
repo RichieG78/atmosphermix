@@ -530,8 +530,8 @@ window.allAudioInstances = [];
                     });
                     muteButton.textContent = 'Mute';
                     muteButton.setAttribute('aria-label', 'Mute volume');
-                    muteButton.style.backgroundColor = '#F2B9AC';
-                    muteButton.style.color = '#5D688C';
+                    muteButton.style.backgroundColor = '#5D688C';
+                    muteButton.style.color = '#fff';
                     isMuted = false;
                 }
             });
