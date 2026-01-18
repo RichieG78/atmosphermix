@@ -4,7 +4,7 @@
 
 ## Website
 
-**[View AtmospherMix Live](https://richieg78.github.io/atmosphermix/**)
+**[View AtmospherMix Live](https://richieg78.github.io/atmosphermix/)
 
 ---
 
