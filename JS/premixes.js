@@ -119,7 +119,7 @@
             const input = document.createElement('input');
             input.type = 'text';
             input.className = 'premix-input';
-            input.placeholder = 'Mix name...';
+            input.placeholder = 'Save Mix...';
             input.maxLength = 20;
             
             // Style the input

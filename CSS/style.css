@@ -24,7 +24,7 @@ header {
 
 .app-title {
 	margin: 0;
-    color: #5D688C;
+    color: #000000;
 	font-size: 2rem;    
     font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
 	font-weight: 600;
@@ -97,7 +97,8 @@ header {
 	padding: 8px 16px;
     border: none;
 	border-radius: 20px;
-	background-color: #F2B9AC;
+	background-color: #5D688C;
+	color: #fff;
     font-family: 'ヒラギノ丸ゴ ProN', 'Hiragino Maru Gothic Pro', 'ヒラギノ丸ゴ Pro', 'Rounded M+ 1c', 'Rounded Mplus 1c', 'UD デジタル 教科書体 NK-R', 'UD Digital 教科書体 NK-R', 'Noto Sans CJK JP', 'Noto Sans Japanese', sans-serif;
     font-weight: 500;
 	cursor: pointer;
@@ -289,6 +290,7 @@ footer {
 	background-color: #F28F79;
 	padding: 20px;
 	width: 100%;
+	cursor:pointer;
 }
 
 .sound-icon img {
@@ -328,6 +330,3 @@ footer {
 	cursor: pointer;
 	border: none;
 }
-
-/* .rain-icon { stroke: #5D688C; }
-.rain-icon .rain-stroke { stroke: #5D688C; } */

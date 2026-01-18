@@ -24,6 +24,9 @@ window.allAudioInstances = [];
         rainAudio.loop = true; // keeps ambience running once started
         window.allAudioInstances.push(rainAudio); // Add to global array for timer control
 
+        const rainIcon = rainCard.querySelector('.sound-icon img');
+        /* Get the rain icon image element for toggling visual state */
+
         const rainSlider = rainCard.querySelector('.sound-volume-slider');
         /* Searches inside rainCard for the first descendant element matching the 
         .sound-volume-slider selector and stores it in rainSlider. 
@@ -61,8 +64,16 @@ window.allAudioInstances = [];
                 rainAudio.play().catch((error) => {
                     console.error('Unable to play Rain.mp3', error);
                 });
+                // Change icon to indicate playing state
+                if (rainIcon) {
+                    rainIcon.src = 'Assets/Rain.svg';
+                }
             } else {
                 rainAudio.pause();
+                // Change icon back to deselected state
+                if (rainIcon) {
+                    rainIcon.src = 'Assets/Rain_deselect.png';
+                }
             }
             /* Toggles playback of the rain sound when the rainCard is clicked,
             resetting to the start if beginning playback again. 
@@ -86,6 +97,8 @@ window.allAudioInstances = [];
         const thunderAudio = new Audio('Assets/sounds/Thunder.mp3');
         thunderAudio.loop = true;
         window.allAudioInstances.push(thunderAudio); // Add to global array for timer control
+
+        const thunderIcon = thunderCard.querySelector('.sound-icon img');
 
         const thunderSlider = thunderCard.querySelector('.sound-volume-slider');
 
@@ -111,8 +124,14 @@ window.allAudioInstances = [];
                 thunderAudio.play().catch((error) => {
                     console.error('Unable to play Thunder.mp3', error);
                 });
+                if (thunderIcon) {
+                    thunderIcon.src = 'Assets/Thunder.svg';
+                }
             } else {
                 thunderAudio.pause();
+                if (thunderIcon) {
+                    thunderIcon.src = 'Assets/Thunder_deselect.png';
+                }
             }
         };
 
@@ -127,6 +146,8 @@ window.allAudioInstances = [];
         const oceanAudio = new Audio('Assets/sounds/Ocean.mp3');
         oceanAudio.loop = true;
         window.allAudioInstances.push(oceanAudio); // Add to global array for timer control
+
+        const oceanIcon = oceanCard.querySelector('.sound-icon img');
 
         const oceanSlider = oceanCard.querySelector('.sound-volume-slider');
 
@@ -152,8 +173,14 @@ window.allAudioInstances = [];
                 oceanAudio.play().catch((error) => {
                     console.error('Unable to play Ocean.mp3', error);
                 });
+                if (oceanIcon) {
+                    oceanIcon.src = 'Assets/Waves.svg';
+                }
             } else {
                 oceanAudio.pause();
+                if (oceanIcon) {
+                    oceanIcon.src = 'Assets/Waves_deselect.png';
+                }
             }
         };
 
@@ -168,6 +195,8 @@ window.allAudioInstances = [];
         const waterfallAudio = new Audio('Assets/sounds/Waterfall.mp3');
         waterfallAudio.loop = true;
         window.allAudioInstances.push(waterfallAudio); // Add to global array for timer control
+
+        const waterfallIcon = waterfallCard.querySelector('.sound-icon img');
 
         const waterfallSlider = waterfallCard.querySelector('.sound-volume-slider');
 
@@ -193,8 +222,14 @@ window.allAudioInstances = [];
                 waterfallAudio.play().catch((error) => {
                     console.error('Unable to play Waterfall.mp3', error);
                 });
+                if (waterfallIcon) {
+                    waterfallIcon.src = 'Assets/waterfall.svg';
+                }
             } else {
                 waterfallAudio.pause();
+                if (waterfallIcon) {
+                    waterfallIcon.src = 'Assets/waterfall_deselect.png';
+                }
             }
         };
 
@@ -209,6 +244,8 @@ window.allAudioInstances = [];
         const cafeAudio = new Audio('Assets/sounds/CoffeeShop.mp3');
         cafeAudio.loop = true;
         window.allAudioInstances.push(cafeAudio); // Add to global array for timer control
+
+        const cafeIcon = cafeCard.querySelector('.sound-icon img');
 
         const cafeSlider = cafeCard.querySelector('.sound-volume-slider');
         
@@ -234,8 +271,14 @@ window.allAudioInstances = [];
                 cafeAudio.play().catch((error) => {
                     console.error('Unable to play CoffeeShop.mp3', error);
                 });
+                if (cafeIcon) {
+                    cafeIcon.src = 'Assets/Coffee.svg';
+                }
             } else {
                 cafeAudio.pause();
+                if (cafeIcon) {
+                    cafeIcon.src = 'Assets/Coffee_deselect.png';
+                }
             }
         };
 
@@ -250,6 +293,8 @@ window.allAudioInstances = [];
         const fireplaceAudio = new Audio('Assets/sounds/Fireplace.mp3');
         fireplaceAudio.loop = true;
         window.allAudioInstances.push(fireplaceAudio); // Add to global array for timer control
+
+        const fireplaceIcon = fireplaceCard.querySelector('.sound-icon img');
 
         const fireplaceSlider = fireplaceCard.querySelector('.sound-volume-slider');
 
@@ -275,8 +320,14 @@ window.allAudioInstances = [];
                 fireplaceAudio.play().catch((error) => {
                     console.error('Unable to play Fireplace.mp3', error);
                 });
+                if (fireplaceIcon) {
+                    fireplaceIcon.src = 'Assets/Fire.svg';
+                }
             } else {
                 fireplaceAudio.pause();
+                if (fireplaceIcon) {
+                    fireplaceIcon.src = 'Assets/Fire_deselect.png';
+                }
             }
         };
         
@@ -291,6 +342,8 @@ window.allAudioInstances = [];
         const birdAudio = new Audio('Assets/sounds/BirdSong.mp3');
         birdAudio.loop = true;
         window.allAudioInstances.push(birdAudio); // Add to global array for timer control
+
+        const birdIcon = birdCard.querySelector('.sound-icon img');
 
         const birdSlider = birdCard.querySelector('.sound-volume-slider');
 
@@ -316,8 +369,14 @@ window.allAudioInstances = [];
                 birdAudio.play().catch((error) => {
                     console.error('Unable to play BirdSong.mp3', error);
                 });
+                if (birdIcon) {
+                    birdIcon.src = 'Assets/Birds.svg';
+                }
             } else {
                 birdAudio.pause();
+                if (birdIcon) {
+                    birdIcon.src = 'Assets/Birds_deselect.png';
+                }
             }
         };
         
@@ -332,6 +391,8 @@ window.allAudioInstances = [];
         const whiteNoiseAudio = new Audio('Assets/sounds/WhiteNoise.mp3');
         whiteNoiseAudio.loop = true;
         window.allAudioInstances.push(whiteNoiseAudio); // Add to global array for timer control
+
+        const whiteNoiseIcon = whiteNoiseCard.querySelector('.sound-icon img');
 
         const whiteNoiseSlider = whiteNoiseCard.querySelector('.sound-volume-slider');
 
@@ -357,8 +418,14 @@ window.allAudioInstances = [];
                 whiteNoiseAudio.play().catch((error) => {
                     console.error('Unable to play WhiteNoise.mp3', error);
                 });
+                if (whiteNoiseIcon) {
+                    whiteNoiseIcon.src = 'Assets/white-noise.svg';
+                }
             } else {
                 whiteNoiseAudio.pause();
+                if (whiteNoiseIcon) {
+                    whiteNoiseIcon.src = 'Assets/white-noise_deselect.png';
+                }
             }
         };
         
@@ -373,6 +440,8 @@ window.allAudioInstances = [];
         const brownNoiseAudio = new Audio('Assets/sounds/BrownNoise.mp3');
         brownNoiseAudio.loop = true;
         window.allAudioInstances.push(brownNoiseAudio); // Add to global array for timer control
+
+        const brownNoiseIcon = brownNoiseCard.querySelector('.sound-icon img');
 
         const brownNoiseSlider = brownNoiseCard.querySelector('.sound-volume-slider');
 
@@ -398,8 +467,14 @@ window.allAudioInstances = [];
                 brownNoiseAudio.play().catch((error) => {
                     console.error('Unable to play BrownNoise.mp3', error);
                 });
+                if (brownNoiseIcon) {
+                    brownNoiseIcon.src = 'Assets/Brown-noise.svg';
+                }
             } else {
                 brownNoiseAudio.pause();
+                if (brownNoiseIcon) {
+                    brownNoiseIcon.src = 'Assets/Brown-noise_deselect.png';
+                }
             }
         };
         
@@ -445,6 +520,8 @@ window.allAudioInstances = [];
                     });
                     muteButton.textContent = 'Unmute';
                     muteButton.setAttribute('aria-label', 'Unmute volume');
+                    muteButton.style.backgroundColor = '#5D688C';
+                    muteButton.style.color = '#fff';
                     isMuted = true;
                 } else {
                     // Unmute: restore previous volumes
@@ -453,6 +530,8 @@ window.allAudioInstances = [];
                     });
                     muteButton.textContent = 'Mute';
                     muteButton.setAttribute('aria-label', 'Mute volume');
+                    muteButton.style.backgroundColor = '#F2B9AC';
+                    muteButton.style.color = '#5D688C';
                     isMuted = false;
                 }
             });
