@@ -13,6 +13,17 @@ AtmospherMix is an interactive ambient sound mixer web application designed to h
 
 The reason for creating a web application inspired by this design and service, was to focus on demonstrating as many different JavaScript interactions through a single page website design. AtmospherMix has no multi-page navigation, all of its features are on one single webpage, while containing multiple interactions to demonstrate all of the JavaScript requirements for this assessment including, DOM Manipulation, storing data in local storage and event listeners.
 
+## How to use AtmosherMix
+- Toggle a sound card, Rain, Thunder, CoffeeShop etc on and off by clicking on it.
+- Toggle on as many sounds as you like and adjust their individual volume sliders to your preferred level.
+- Save your preferred mix by selecting the "plus" sign in the Mix Cards at the top of the page and typing the name of your mix into the card, then press Save.
+- Press Clear when you want to delete the saved sound mix.
+- Save up to 8 different mixes.
+- Set the timer in the header to countdown for 25 minutes. It will automatically turn the sound off when it reaches 0.
+- Reset the time if you want to repeat.
+- Use the global volume control to control the volume of all of the individual sound cards you have selected.
+- Use mute toggle the global sound on/off.
+
 ---
 
 ## 1. Project Conceptualization and Planning
